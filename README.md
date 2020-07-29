@@ -2,9 +2,17 @@
 
 Survicate Flutter plugin.
 
-## Getting Started
+## 1. Add share
 
-### Android
+```
+flutter_survicate:
+    git:
+      url: https://github.com/Alezhka/flutter_survicate.git
+```
+
+## 2. Setup platforms
+
+#### Android
 
 In AndroidManifest.xml add:
 
@@ -14,7 +22,7 @@ In AndroidManifest.xml add:
     android:value="" />
 ```
 
-### IOS
+#### IOS
 
 In Info.plist add:
 
@@ -26,7 +34,7 @@ In Info.plist add:
 </dict>
 ```
 
-## Methods
+## 3. Explore methods
 ```
 FlutterSurvicate.init("YOUR_WORKPLACE_KEY", true);
 FlutterSurvicate.onEvent.listen((event) {});
