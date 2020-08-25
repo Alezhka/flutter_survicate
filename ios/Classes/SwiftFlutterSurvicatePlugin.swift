@@ -86,6 +86,8 @@ public class SwiftFlutterSurvicatePlugin: NSObject, FlutterPlugin, SurvicateDele
                 let value = myArgs["value"] as? String {
                 Survicate.shared.setUserTrait(UserTrait(withName: key, value: value))
             }
+
+            result(nil)
             break
         case "setUserTraits":
             guard let args = call.arguments else {
