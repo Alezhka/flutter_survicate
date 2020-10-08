@@ -40,6 +40,7 @@ class FlutterSurvicatePlugin: FlutterPlugin, MethodCallHandler {
 
     override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
       methodChannel.setMethodCallHandler(null)
+      eventChannel.setStreamHandler(null)
       context = null
     }
 
@@ -119,11 +120,6 @@ class FlutterSurvicatePlugin: FlutterPlugin, MethodCallHandler {
           result.notImplemented()
         }
       }
-    }
-
-    override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
-      methodChannel.setMethodCallHandler(null)
-      eventChannel.setStreamHandler(null)
     }
 
     class MessageStreamHandler : EventChannel.StreamHandler {

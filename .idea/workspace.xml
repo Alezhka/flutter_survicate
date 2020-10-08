@@ -4,11 +4,24 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1268b271-fce4-42cd-9832-9ee2cf32dd1e" name="Default Changelist" comment="" />
+    <list default="true" id="1268b271-fce4-42cd-9832-9ee2cf32dd1e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/github/alezhka/flutter_survicate/FlutterSurvicatePlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/github/alezhka/flutter_survicate/FlutterSurvicatePlugin.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="069d71680b357463" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1cojdQx29zPVgn7XWVKJ4ZjjsPd" />
   <component name="ProjectViewState">
@@ -18,6 +31,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -37,26 +51,26 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="242" key="GridCell.Tab.0.bottom" timestamp="1594056833280">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="229" key="GridCell.Tab.0.bottom" timestamp="1602155405214">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1398" height="242" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1594056833280" />
-    <state width="1398" height="283" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1594023199837" />
-    <state width="1398" height="242" key="GridCell.Tab.0.center" timestamp="1594056833275">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="229" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602155405214" />
+    <state width="1398" height="229" key="GridCell.Tab.0.center" timestamp="1602155405213">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1398" height="242" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1594056833275" />
-    <state width="1398" height="283" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1594023199836" />
-    <state width="1398" height="242" key="GridCell.Tab.0.left" timestamp="1594056833265">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="229" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1602155405213" />
+    <state width="1398" height="229" key="GridCell.Tab.0.left" timestamp="1602155405213">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1398" height="242" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1594056833264" />
-    <state width="1398" height="283" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1594023199835" />
-    <state width="1398" height="242" key="GridCell.Tab.0.right" timestamp="1594056833276">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="229" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1602155405213" />
+    <state width="1398" height="229" key="GridCell.Tab.0.right" timestamp="1602155405214">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1398" height="242" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1594056833276" />
-    <state width="1398" height="283" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1594023199836" />
+    <state width="1398" height="229" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1602155405214" />
     <state x="100" y="123" width="1240" height="677" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1593796099094">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
