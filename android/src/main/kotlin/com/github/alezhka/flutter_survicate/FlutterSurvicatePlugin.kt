@@ -26,7 +26,7 @@ class FlutterSurvicatePlugin: FlutterPlugin, MethodCallHandler {
     /// when the Flutter Engine is detached from the Activity
     private lateinit var methodChannel : MethodChannel
     private lateinit var eventChannel : EventChannel
-    private lateinit var context: Context
+    private var context: Context? = null
 
     private val messageStreamHandler = MessageStreamHandler()
 
@@ -48,7 +48,7 @@ class FlutterSurvicatePlugin: FlutterPlugin, MethodCallHandler {
         "init" -> {
           val loggerEnabled: Boolean = call.argument("loggerEnabled")!!
           val workplaceKey: String = call.argument("workplaceKey")!!
-          Survicate.init(context, loggerEnabled)
+          Survicate.init(context!!, loggerEnabled)
           Survicate.changeWorkspaceKey(workplaceKey)
           Survicate.setEventListener(object: SurvicateEventListener() {
 
