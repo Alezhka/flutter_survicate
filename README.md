@@ -2,15 +2,7 @@
 
 Survicate Flutter plugin.
 
-## 1. Add share
-
-```
-flutter_survicate:
-    git:
-      url: https://github.com/Alezhka/flutter_survicate.git
-```
-
-## 2. Setup platforms
+## Get started
 
 #### Android
 
@@ -34,9 +26,13 @@ In Info.plist add:
 </dict>
 ```
 
-## 3. Explore methods
+## Init library
 ```
 FlutterSurvicate.init("YOUR_WORKPLACE_KEY", true);
+```
+
+## Explore methods
+```
 FlutterSurvicate.onEvent.listen((event) {});
 FlutterSurvicate.enterScreen('screen');
 FlutterSurvicate.leaveScreen('screen');
