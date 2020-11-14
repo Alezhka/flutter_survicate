@@ -1,6 +1,10 @@
 # flutter_survicate
 
+<a href="https://pub.dev/packages/flutter_survicate"><img src="https://img.shields.io/badge/pub-v0.0.1-blue" alt="Pub"></a>
+---
+
 Survicate Flutter plugin.
+
 
 ## Get started
 
