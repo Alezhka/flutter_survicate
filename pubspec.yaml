@@ -1,8 +1,8 @@
 name: flutter_survicate
 description: Survicate Flutter plugin.
-version: 0.0.1
-author:
-homepage:
+version: 0.0.1+1
+author: alezhk@gmail.com
+homepage: https://github.com/Alezhka/flutter_survicate
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
