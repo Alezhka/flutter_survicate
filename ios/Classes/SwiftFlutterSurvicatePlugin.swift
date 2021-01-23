@@ -2,12 +2,13 @@ import Flutter
 import UIKit
 import Survicate
 
-public class SwiftFlutterSurvicatePlugin: NSObject, FlutterPlugin, SurvicateDelegate {
+public class SwiftFlutterSurvicatePlugin: NSObject, FlutterPlugin {
     
     private var channel: FlutterMethodChannel? = nil
     private var eventChannel: FlutterEventChannel? = nil
     
     private var messageStreamHandler: SwiftStreamHandler?
+    private var survicateDelegate: FlutterSurvicateDelegate?
     
     
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -16,7 +17,8 @@ public class SwiftFlutterSurvicatePlugin: NSObject, FlutterPlugin, SurvicateDele
     instance.eventChannel = FlutterEventChannel(name: "events", binaryMessenger: registrar.messenger())
     registrar.addMethodCallDelegate(instance, channel: instance.channel!)
     instance.messageStreamHandler = SwiftStreamHandler()
-    instance.eventChannel?.setStreamHandler(instance.messageStreamHandler as! FlutterStreamHandler & NSObjectProtocol)
+    instance.eventChannel?.setStreamHandler((instance.messageStreamHandler as! FlutterStreamHandler & NSObjectProtocol))
+    instance.survicateDelegate = FlutterSurvicateDelegate(instance.messageStreamHandler!)
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -25,25 +27,21 @@ public class SwiftFlutterSurvicatePlugin: NSObject, FlutterPlugin, SurvicateDele
             guard let args = call.arguments else {
               return
             }
-            print("init")
             if let myArgs = args as? [String: Any],
                 let workplaceKey = myArgs["workplaceKey"] as? String,
                 let loggerEnabled = myArgs["loggerEnabled"] as? Bool {
                 Survicate.shared.setDebuggable(log: loggerEnabled ? LogLevel.verbose : LogLevel.none)
                 Survicate.shared.initialize()
-                Survicate.shared.delegate = self
+                Survicate.shared.delegate = survicateDelegate
                 Survicate.shared.setApiKey(workplaceKey)
-                print("workplaceKey: " + workplaceKey)
-                print("init complete")
             }
             
             result(nil)
-            break
+            return
         case "reset":
-            print("reset")
             Survicate.shared.reset()
             result(nil)
-            break
+            return
         case "enterScreen":
             guard let args = call.arguments else {
               return
@@ -54,7 +52,7 @@ public class SwiftFlutterSurvicatePlugin: NSObject, FlutterPlugin, SurvicateDele
             }
             
             result(nil)
-            break
+            return
         case "leaveScreen":
             guard let args = call.arguments else {
               return
@@ -65,7 +63,7 @@ public class SwiftFlutterSurvicatePlugin: NSObject, FlutterPlugin, SurvicateDele
             }
             
             result(nil)
-            break
+            return
         case "invokeEvent":
             guard let args = call.arguments else {
               return
@@ -76,7 +74,7 @@ public class SwiftFlutterSurvicatePlugin: NSObject, FlutterPlugin, SurvicateDele
             }
             
             result(nil)
-            break
+            return
         case "setUserTrait":
             guard let args = call.arguments else {
               return
@@ -88,7 +86,7 @@ public class SwiftFlutterSurvicatePlugin: NSObject, FlutterPlugin, SurvicateDele
             }
 
             result(nil)
-            break
+            return
         case "setUserTraits":
             guard let args = call.arguments else {
               return
@@ -103,16 +101,50 @@ public class SwiftFlutterSurvicatePlugin: NSObject, FlutterPlugin, SurvicateDele
             }
             
             result(nil)
-            break
+            return
         default:
             result(FlutterMethodNotImplemented)
         }
-        result(FlutterMethodNotImplemented)
+    }
+
+}
+
+class SwiftStreamHandler: FlutterStreamHandler {
+    
+    var eventSink: FlutterEventSink?
+    
+    public func send(channel: String, event: String, data: [String: Any]) {
+        let data: [String : Any] = [
+            "channel": channel,
+            "event": event,
+            "body": data
+        ]
+        eventSink?(data)
+    }
+    
+    public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
+        self.eventSink = events
+        return nil
+    }
+    
+    public func onCancel(withArguments arguments: Any?) -> FlutterError? {
+        self.eventSink = nil
+        return nil
+    }
+    
+}
+
+class FlutterSurvicateDelegate : SurvicateDelegate {
+    
+    let handler: SwiftStreamHandler
+    
+    init(_ handler: SwiftStreamHandler) {
+        self.handler = handler
     }
     
     public func surveyDisplayed(surveyId: String) {
         let data = ["surveyId": surveyId]
-        messageStreamHandler?.send(channel: "events", event: "onSurveyDisplayed", data: data)
+        handler.send(channel: "events", event: "onSurveyDisplayed", data: data)
     }
 
     public func questionAnswered(surveyId: String, questionId: Int, answer: SurvicateAnswer) {
@@ -127,42 +159,17 @@ public class SwiftFlutterSurvicatePlugin: NSObject, FlutterPlugin, SurvicateDele
             "questionId": questionId,
             "answer": answer
         ]
-        messageStreamHandler?.send(channel: "events", event: "onSurveyClosed", data: data)
+        handler.send(channel: "events", event: "onSurveyClosed", data: data)
     }
 
     public func surveyCompleted(surveyId: String) {
         let data = ["surveyId": surveyId]
-        messageStreamHandler?.send(channel: "events", event: "onSurveyCompleted", data: data)
+        handler.send(channel: "events", event: "onSurveyCompleted", data: data)
     }
 
     public func surveyClosed(surveyId: String) {
         let data = ["surveyId": surveyId]
-        messageStreamHandler?.send(channel: "events", event: "onSurveyClosed", data: data)
+        handler.send(channel: "events", event: "onSurveyClosed", data: data)
     }
     
-    class SwiftStreamHandler: FlutterStreamHandler {
-        
-        var eventSink: FlutterEventSink?
-        
-        public func send(channel: String, event: String, data: [String: Any]) {
-            let data: [String : Any] = [
-                "channel": channel,
-                "event": event,
-                "body": data
-            ]
-            eventSink?(data)
-        }
-        
-        public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
-            self.eventSink = events
-            return nil
-        }
-        
-        public func onCancel(withArguments arguments: Any?) -> FlutterError? {
-            self.eventSink = nil
-            return nil
-        }
-        
-    }
-
 }

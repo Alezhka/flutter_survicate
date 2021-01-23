@@ -2,8 +2,8 @@ PODS:
   - Flutter (1.0.0)
   - flutter_survicate (0.0.1):
     - Flutter
-    - Survicate
-  - Survicate (1.4.0)
+    - Survicate (~> 1.4.3)
+  - Survicate (1.4.3)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -21,9 +21,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  flutter_survicate: cfaba7ab5aeb04691666242849e15963eff8503c
-  Survicate: 51d878a34f946c5920ab6f3ffc6fa7af459db0e2
+  flutter_survicate: 3694043324be0b8c578cd3aff5c34196dcd52e69
+  Survicate: 04532a609cba1961879416d0268390196efe2979
 
 PODFILE CHECKSUM: c34e2287a9ccaa606aeceab922830efb9a6ff69a
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

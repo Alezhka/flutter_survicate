@@ -14,8 +14,9 @@ Survicate Flutter plugin.
   s.author           = { 'Aleksei Sturov' => 'alezhk@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
+  s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'Survicate', '~> 1.4.2'
+  s.dependency 'Survicate', '~> 1.4.3'
   s.platform = :ios, '10.0'
 
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
